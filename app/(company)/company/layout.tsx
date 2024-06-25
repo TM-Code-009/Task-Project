@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import "./globals.css";
-import { NextFont } from "next/dist/compiled/@next/font";
-import { dbConfig } from "../app/utils/dbConfig";
-import MainSession from "./components/MainSession";
 
-const inter: NextFont = Inter({ subsets: ["latin"] });
+import { NextFont } from "next/dist/compiled/@next/font";
+import { dbConfig } from "../../utils/dbConfig";
+import Sider from "./sider";
+import CreateProject from "./createproject";
+
 const poppins: NextFont = Poppins({
   weight: "300",
   style: "normal",
@@ -13,7 +13,7 @@ const poppins: NextFont = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Project Management App",
+  title: "Project Owner Screen",
   description: "Manage all your Project in One Place",
 };
 
@@ -25,9 +25,11 @@ export default async function RootLayout({
   await dbConfig();
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <div className={poppins.className}>
-          <MainSession>{children}</MainSession>
+      <body>
+        <div className={`${poppins.className} flex gap-2`}>
+          <Sider />
+
+          <div>{children}</div>
         </div>
       </body>
     </html>
