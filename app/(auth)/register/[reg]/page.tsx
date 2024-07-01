@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { URL } from "../../../utils/constant";
 import { data } from "../../../utils/data";
@@ -26,14 +26,14 @@ const page = async ({ params }: any) => {
   });
 
   const createAccount = async (data: FormData) => {
-    // "use server";
+    "use server";
     const companyName = data.get("companyName") as string;
     const email = data.get("email") as string;
     const password = data.get("password") as string;
 
      const newurl = "http://localhost:3000/api/register"
 
-    await fetch(newurl, {
+    await fetch( newurl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,6 +87,7 @@ const page = async ({ params }: any) => {
 
           <button
             type="submit"
+            
             className="w-full mt-8 h-[55px] flex items-center justify-center text-white bg-neutral-800 rounded-md"
           >
             Register

@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import LandingPage from "./components/LandingPage";
 import { getServerSession } from "next-auth";
@@ -7,7 +9,7 @@ import { redirect } from "next/navigation";
 const page = async () => {
   const session: null | {} | undefined | any = await getServerSession(options);
 
-  console.log(session);
+  console.log("show me: ", session);
 
   if (session === null) {
     return (

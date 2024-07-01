@@ -5,6 +5,7 @@ import { NextFont } from "next/dist/compiled/@next/font";
 import { dbConfig } from "../../utils/dbConfig";
 import Sider from "./sider";
 import CreateProject from "./createproject";
+import Header from "./Header";
 
 const poppins: NextFont = Poppins({
   weight: "300",
@@ -29,7 +30,12 @@ export default async function RootLayout({
         <div className={`${poppins.className} flex gap-2`}>
           <Sider />
 
-          <div>{children}</div>
+          <div className="w-[calc(100vw-250px)] pr-2">
+            <div className="w-full">
+              <Header />
+            </div>
+            <div>{children}</div>
+          </div>
         </div>
       </body>
     </html>

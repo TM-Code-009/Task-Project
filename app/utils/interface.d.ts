@@ -30,8 +30,8 @@ export interface iStaffData extends iStaff, Document {}
 
 export interface iProject {
   title: string;
-  dueDate: Date;
-  assigned: string;
+  dueDate: String;
+  companyID: String;
   task: {}[];
   company: {};
 }
@@ -39,9 +39,11 @@ export interface iProject {
 export interface iProjectData extends iProject, Document {}
 
 export interface iTask {
+  assigned: string;
   title: string;
   steps: {}[];
   task: {};
+  project: {};
 }
 
 export interface iTaskData extends iTask, Document {}
